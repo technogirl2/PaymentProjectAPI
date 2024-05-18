@@ -70,7 +70,7 @@ namespace CrudAPi.Controllers
                 }
             }
 
-            return NoContent();
+            return Ok(await _context.PaymentDetails.ToListAsync());
         }
 
         // POST: api/PaymentDetail
@@ -99,7 +99,7 @@ namespace CrudAPi.Controllers
             _context.PaymentDetails.Remove(paymentDetails);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(await _context.PaymentDetails.ToListAsync());
         }
 
         private bool PaymentDetailsExists(int id)
